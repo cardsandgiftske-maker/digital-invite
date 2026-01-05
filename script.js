@@ -204,4 +204,13 @@ window.addEventListener('scroll', function() {
             audio.volume = 0.5;
         }
     }
+
+});
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loader-wrapper');
+    
+    // Add a slight delay so the user actually sees the beautiful loader
+    setTimeout(() => {
+        loader.classList.add('loader-hidden');
+    }, 1500);
 });
