@@ -1,0 +1,683 @@
+:root {
+    --gold: #c5a059;
+    --cream: #fdfaf6;
+    --dark: #2c2c2c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--cream);
+    color: var(--dark);
+    overflow: hidden; /* Locked until envelope is clicked */
+}
+
+/* FULL SCREEN OVERLAY */
+#envelope-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #2c2c2c; /* Deep elegant dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s;
+    cursor: pointer;
+}
+
+/* ENVELOPE BOX */
+.envelope-wrapper {
+    width: 90%; /* Leaves a small margin so it looks like an object */
+    max-width: 400px;
+    height: 250px;
+    background: #fdfaf6; /* Cream color for the envelope paper */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    position: relative;
+}
+
+/* THE WAX SEAL */
+.wax-seal img {
+    width: 80px;
+    height: 80px;
+    z-index: 2;
+    transition: transform 0.3s;
+}
+
+/* ENVELOPE MESSAGES */
+.envelope-msg { 
+    color: #2c2c2c; 
+    margin-top: 15px; 
+    letter-spacing: 3px; 
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.tap-hint { 
+    color: var(--gold); 
+    font-size: 0.7rem; 
+    margin-top: 5px; 
+    text-transform: uppercase;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+.envelope-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.05) 50%, transparent 50%);
+    pointer-events: none;
+}
+
+/* MAIN CONTENT */
+.main-container {
+    width: 100%;
+    max-width: 450px; /* Mobile width */
+    margin: 0 auto;
+    height: 100vh;
+    overflow-y: auto;
+    background: white;
+}
+
+.hero-section {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070') no-repeat center center/cover;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+}
+
+.names { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; margin: 0;text-align: center; }
+
+.timer-section, .story-section, .venue-section { padding: 60px 20px; text-align: center; }
+
+.title-gold { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 2rem; }
+
+/* FLOATING TIMER BOXES */
+#timer { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+
+.time-box {
+    background: white;
+    width: 70px; padding: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.time-box span { display: block; font-size: 1.5rem; font-weight: 600; color: var(--gold); }
+.time-box p { font-size: 0.6rem; margin: 0; color: #888; text-transform: uppercase; }
+
+/* BUTTONS */
+.button-container { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+.btn {
+    text-decoration: none; padding: 18px; border-radius: 50px; font-weight: bold; font-size: 0.8rem; letter-spacing: 1px;
+}
+.btn-gold { background: var(--gold); color: rgb(95, 222, 103); }
+.btn-outline { border: 1px solid var(--gold); color: var(--gold); }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+/* Hero Landing Styling */
+.hero-section {
+    height: 120vh; /* Extra height to allow internal scrolling room */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('file:///C:/Users/PC/Desktop/Invite/garlands-greenery-pink-flowers-hang-from-balcony-stairs.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Parallax effect for the background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.hero-overlay {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.names-hero {
+    font-family: 'Bickham Script Pro', 'Great Vibes', cursive;
+    font-size: clamp(4rem, 18vw, 6rem); /* Larger size since they are stacked */
+    color: var(--white);
+    text-align: center;
+    line-height: 0.8; /* Tightens the vertical space between the names */
+    margin: 0;
+    padding: 20px 0;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.amp {
+    font-family: 'Cormorant Garamond', serif; /* A clean serif font for the & */
+    font-size: 0.6em; /* Makes the ampersand smaller than the names */
+    color: var(--gold);
+    display: block; /* Ensures it sits on its own line */
+    margin: 10px 0;
+}
+
+.hero-break {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+}
+
+.hero-date {
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    font-weight: 300;
+}
+
+.welcome-text {
+    letter-spacing: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* Scroll Arrow Animation */
+.scroll-arrow span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid var(--gold);
+    border-right: 2px solid var(--gold);
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: arrow-down 2s infinite;
+}
+
+.scroll-arrow span:nth-child(2) { animation-delay: -0.2s; }
+
+@keyframes arrow-down {
+    0% { opacity: 0; transform: rotate(45deg) translate(-20px, -20px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: rotate(45deg) translate(20px, 20px); }
+}
+
+/* Animation Classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.2s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Program Timeline */
+.timeline {
+    margin: 20px auto;
+    max-width: 300px;
+    border-left: 1px solid var(--gold);
+    padding-left: 20px;
+    text-align: left;
+}
+.event { margin-bottom: 25px; position: relative; }
+.event::before {
+    content: '';
+    position: absolute;
+    left: -25px; top: 5px;
+    width: 10px; height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+.time { font-weight: bold; color: var(--gold); font-size: 0.9rem; display: block; }
+.activity { margin: 5px 0; font-size: 0.95rem; }
+
+/* Dress Code Palette */
+.color-palette {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+.color-circle {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.dress-style { font-style: italic; letter-spacing: 2px; }
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+.gallery-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+.gallery-item img:hover { transform: scale(1.05); }
+/* Full Screen Dark Background */
+#envelope-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1a1a1a; /* Dark background to make the image pop */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    cursor: pointer;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s;
+}
+
+.envelope-image-container {
+    position: relative;
+    width: 90%;
+    max-width: 450px; /* Limits size on tablets/desktop */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main-envelope {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+/* Floating "Tap" UI */
+.tap-to-open-ui {
+    position: absolute;
+    bottom: -60px;
+    text-align: center;
+    color: #c5a059;
+}
+
+.tap-to-open-ui p {
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.pulse-ring {
+    width: 20px;
+    height: 20px;
+    background: #c5a059;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(197, 160, 89, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+}
+.sparkle {
+    position: absolute;
+    background: #c5a059; /* Your gold theme color */
+    border-radius: 50%;
+    pointer-events: none; /* Important: so it doesn't block clicking the envelope */
+    z-index: 10001; /* Above the envelope overlay */
+    box-shadow: 0 0 10px #fdfaf6, 0 0 20px #c5a059;
+    animation: sparkle-fade 1s ease-out forwards;
+}
+
+@keyframes sparkle-fade {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5) rotate(180deg);
+        opacity: 0;
+    }
+}
+/* SECTION COLOR PALETTE */
+.timer-section { 
+    background-color: #a67344; /* Clean White */
+}
+
+.venue-section { 
+    background-color: #eccb8a; /* Soft Champagne/Cream */
+}
+
+.program-section { 
+    background-color: #8b7d61; /* Light Taupe */
+}
+
+.gallery-section { 
+    background-color: #558338; /* Back to White */
+}
+
+/* Common Section Styling */
+.content-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* LIGHTBOX STYLING */
+#lightbox {
+    position: fixed;
+    z-index: 20000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(35, 1, 1, 0.9);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px; right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.gallery-item img {
+    cursor: zoom-in;
+    transition: 0.3s ease;
+}
+/* Venue Section Styling */
+.venue-section {
+    background-color: #f9f6f0; /* Soft Champagne */
+}
+
+.venue-name {
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.venue-address {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.map-container {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+/* RSVP Section Styling */
+.rsvp-section {
+    background-color: #2c2c2c; /* Deep Dark for a "Premium" finish */
+    color: #fdfaf6;
+}
+
+.rsvp-section .title-gold {
+    color: var(--gold);
+}
+
+.rsvp-note {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn {
+    width: 80%;
+    max-width: 300px;
+    padding: 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: transform 0.2s;
+}
+
+.btn:active { transform: scale(0.95); }
+
+.btn-gold { background-color: var(--gold); color: white; }
+.btn-outline { border: 1px solid var(--gold); color: var(--gold); }
+.dresscode-section {
+    background: linear-gradient(135deg, #fdfaf6 0%, #f2ede4 100%);
+    padding: 80px 20px;
+}
+
+.illustration-flex {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.gender-box {
+    text-align: center;
+}
+
+.gender-box p {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-top: 15px;
+    text-transform: uppercase;
+    color: #555;
+}
+
+.icon-wrapper {
+    width: 100px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fashion-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+
+/* ANIMATIONS */
+.male-anim {
+    animation: sway 4s ease-in-out infinite;
+}
+
+.female-anim {
+    animation: sway 4s ease-in-out infinite reverse;
+}
+
+@keyframes sway {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+/* Color Swatches */
+.color-swatch-container {
+    margin-top: 30px;
+}
+
+.swatches {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.gold { background-color: #c5a059; }
+.black { background-color: #333333; }
+.cream { background-color: #fdfaf6; border: 1px solid #ddd; }
+.hero-section {
+    position: relative;
+    height: 100vh; /* Full screen height */
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-scroll-container {
+    text-align: center;
+    z-index: 10;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Bickham Script Pro Look-alike */
+.names-hero {
+    font-family: 'Bickham Script Pro', cursive;
+    font-size: 5rem;
+    color: #fdfaf6;
+    margin: 0;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.hero-divider {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, #c5a059, transparent);
+    margin: 20px auto;
+}
+.getting-married {
+    letter-spacing: 6px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    margin-top: -10px;
+}
+
+.hero-divider {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, #c5a059, transparent);
+    margin: 20px auto;
+}
+
+.hero-date-text {
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    font-weight: 300;
+}
+
+.welcome-label {
+    letter-spacing: 8px;
+    font-size: 0.7rem;
+    margin-top: 20px;
+}
+
+/* Arrow Animation */
+.arrow {
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+    margin: 10px auto;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0) rotate(45deg);}
+    40% {transform: translateY(-10px) rotate(45deg);}
+    60% {transform: translateY(-5px) rotate(45deg);}
+}
+.music-player-mini {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid var(--gold);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    /* Initially hidden, we show it after the envelope opens */
+    opacity: 0;
+    pointer-events: none;
+}
+
+.music-player-mini.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#music-status {
+    font-size: 0.6rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--gold);
+}
+
+/* Animated Music Bars */
+.music-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 15px;
+}
+
+.bar {
+    width: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+    animation: sound-wave 1s infinite alternate;
+}
+
+.bar:nth-child(2) { animation-duration: 0.7s; }
+.bar:nth-child(3) { animation-duration: 0.9s; }
+
+@keyframes sound-wave {
+    0% { height: 5px; }
+    100% { height: 15px; }
+}
+
+.paused .bar {
+    animation-play-state: paused;
+    height: 3px;
+}

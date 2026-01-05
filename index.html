@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Invitation | Premium Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="envelope-overlay" onclick="openInvitation()">
+    <div class="envelope-image-container">
+        <img src="file:///C:/Users/PC/Desktop/Invite/wax.jpeg" alt="Wedding Invitation" id="main-envelope">
+        
+        <div class="tap-to-open-ui">
+            <p>TAP TO OPEN</p>
+            <div class="pulse-ring"></div>
+        </div>
+    </div>
+</div>
+
+    <div class="main-container">
+        
+        <header class="hero-section">
+    <div class="hero-scroll-container">
+    <div class="hero-text-block">
+        <h1 class="names-hero">
+            Alex<br>
+            <span class="amp">&</span><br>
+            Sam
+        </h1>
+
+            <div class="hero-divider"></div>
+
+            <p class="getting-married">ARE GETTING MARRIED</p>
+            
+            <div class="hero-divider"></div>
+            
+            <p class="hero-date-text">05.24.2025</p>
+            
+            <div class="hero-divider"></div>
+
+            <p class="welcome-label">SAVE THE DATE</p>
+            <div class="scroll-arrow-container">
+                <div class="arrow"></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <section class="timer-section">
+            <h2 class="title-gold">The Big Day Awaits!</h2>
+            <div id="timer">
+                <div class="time-box"><span id="days">00</span><p>Days</p></div>
+                <div class="time-box"><span id="hours">00</span><p>Hrs</p></div>
+                <div class="time-box"><span id="minutes">00</span><p>Min</p></div>
+                <div class="time-box"><span id="seconds">00</span><p>Sec</p></div>
+            </div>
+        </section>
+
+        <section class="story-section">
+            <h2 class="title-gold">Our Story</h2>
+            <p class="prose">It all started with a simple hello... and now we are ready for our forever. Join us as we celebrate a lifetime of love and happiness.</p>
+        </section>
+
+        <section class="venue-section content-section reveal">
+    <h2 class="title-gold">The Venue</h2>
+    <p class="venue-name">NAISHOLA GARDENS</p>
+    <p class="venue-address">Gathoni Park Farm,Tigoni</p>
+    
+    <div class="map-container">
+        <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.028906593418!2d36.65756287613736!3d-1.1397787988493018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f23f6d400ca17%3A0x878f7b1b12ac6ad2!2sNaishola%20Gardens!5e0!3m2!1sen!2ske!4v1767632581059!5m2!1sen!2ske" 
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+    </div>
+</section>
+<section class="dresscode-section content-section reveal">
+    <div class="dresscode-container">
+        <h2 class="title-gold">Dress Code</h2>
+        <p class="dress-desc">BLACK TIE OPTIONAL</p>
+        
+        <div class="illustration-flex">
+            <div class="gender-box">
+                <div class="icon-wrapper male-anim">
+                    <svg viewBox="0 0 64 64" class="fashion-svg">
+                        <path d="M20,15 L44,15 L48,50 L16,50 Z" fill="#333" /> 
+                        <path d="M32,15 L38,25 L32,35 L26,25 Z" fill="#fff" />
+                        <path d="M31,15 L33,15 L32,25 Z" fill="#c5a059" /> </svg>
+                </div>
+                <p>Gentlemen</p>
+            </div>
+
+            <div class="gender-box">
+                <div class="icon-wrapper female-anim">
+                    <svg viewBox="0 0 64 64" class="fashion-svg">
+                        <path d="M32,12 L42,25 L50,55 L14,55 L22,25 Z" fill="#c5a059" />
+                        <path d="M32,12 L38,20 L32,25 L26,20 Z" fill="rgba(255,255,255,0.3)" />
+                    </svg>
+                </div>
+                <p>Ladies</p>
+            </div>
+        </div>
+
+        <div class="color-swatch-container">
+            <p>Our Wedding Palette</p>
+            <div class="swatches">
+                <div class="dot gold" title="Gold"></div>
+                <div class="dot black" title="Black"></div>
+                <div class="dot cream" title="Cream"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content-section reveal">
+    <h2 class="title-gold">The Program</h2>
+    <div class="timeline">
+        <div class="event">
+            <span class="time">3:00 PM</span>
+            <p class="activity">Arrival & Welcoming</p>
+        </div>
+        <div class="event">
+            <span class="time">4:00 PM</span>
+            <p class="activity">The Wedding Ceremony</p>
+        </div>
+        <div class="event">
+            <span class="time">5:30 PM</span>
+            <p class="activity">Cocktail Hour</p>
+        </div>
+        <div class="event">
+            <span class="time">7:00 PM</span>
+            <p class="activity">Dinner & Dancing</p>
+        </div>
+    </div>
+</section>
+<section class="rsvp-section content-section reveal">
+    <h2 class="title-gold">RSVP</h2>
+    <p>Kindly respond by May 1st, 2026</p>
+    <p class="rsvp-note">Please let us know if you will be attending our celebration.</p>
+    
+    <div class="button-container">
+        <a href="https://wa.me/1234567890?text=Hi!+I+will+be+attending+the+wedding!" class="btn btn-gold">CONFIRM ATTENDANCE</a>
+        <a href="mailto:wedding@email.com" class="btn btn-outline">RSVP VIA EMAIL</a>
+    </div>
+</section>
+
+<section class="content-section reveal">
+    <h2 class="title-gold">Our Gallery</h2>
+    <div class="gallery-grid">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1000" alt="Couple 1"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1000" alt="Couple 2"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000" alt="Couple 3"></div>
+        <div class="gallery-item"><img src="file:///C:/Users/PC/Desktop/Invite/medium-shot-couple-being-romantic.jpg" alt="Couple 4"></div>
+    </div>
+</section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+<div id="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" src="">
+</div>
+<audio id="wedding-bells" loop>
+    <source src="file:///C:/Users/PC/Desktop/Invite/wedding%20bells.mp4" type="audio/mpeg">
+</audio>
+
+<div id="music-control" class="music-player-mini" onclick="toggleMusic()">
+    <div class="music-bars">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+    <p id="music-status">ON</p>
+</div>
+</html>
