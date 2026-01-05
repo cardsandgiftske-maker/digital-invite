@@ -682,3 +682,58 @@ body {
     height: 3px;
 
 }
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--cream);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20000; /* Must be higher than everything else */
+    transition: opacity 0.8s ease;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+/* The Gold Ring */
+.gold-ring {
+    width: 60px;
+    height: 60px;
+    border: 3px solid rgba(197, 160, 89, 0.2);
+    border-radius: 50%;
+    border-top-color: var(--gold);
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+/* The Initials */
+.initials {
+    font-family: 'Bickham Script Pro', 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-top: -50px; /* Positions initials inside the ring */
+    margin-bottom: 30px;
+}
+
+.loading-text {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Hide loader class */
+.loader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
