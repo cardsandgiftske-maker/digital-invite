@@ -141,7 +141,7 @@ body {
 .hero-section {
     height: 120vh; /* Extra height to allow internal scrolling room */
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                url('file:///C:/Users/PC/Desktop/Invite/garlands-greenery-pink-flowers-hang-from-balcony-stairs.jpg') no-repeat center center/cover;
+                url('garlands-greenery-pink-flowers-hang-from-balcony-stairs.jpg') no-repeat center center/cover;
     background-attachment: fixed; /* Parallax effect for the background */
     display: flex;
     flex-direction: column;
@@ -680,4 +680,5 @@ body {
 .paused .bar {
     animation-play-state: paused;
     height: 3px;
+
 }
